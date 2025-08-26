@@ -1,0 +1,49 @@
+<section class="py-16">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-semibold">{{ section.settings.heading }}</h2>
+<p class="mt-2 opacity-80">{{ section.settings.subheading }}</p>
+<div class="grid md:grid-cols-3 gap-6 mt-8">
+{% assign handles = section.settings | json | parse_json %}
+{% assign main = section.settings.product_main | default: '' %}
+{% assign psmall = section.settings.product_pack_small | default: '' %}
+{% assign plarge = section.settings.product_pack_large | default: '' %}
+
+
+{% for handle in main | append: ',' | append: psmall | append: ',' | append: plarge | split: ',' %}
+{% assign product = all_products[handle] %}
+{% if product %}
+<div class="bg-white rounded-2xl shadow-sm p-5">
+<a href="{{ product.url }}" class="block">
+{% if product.featured_image %}
+<img class="w-full h-52 object-cover rounded-xl" src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}">
+{% endif %}
+<h3 class="mt-3 font-medium">{{ product.title }}</h3>
+</a>
+<div class="mt-2">{% render 'price', product: product %}</div>
+{% if section.settings.enable_subscriptions and product.selling_plan_groups.size > 0 %}
+<div class="mt-2 text-sm">Subscribe & save available</div>
+{% endif %}
+<form method="post" action="/cart/add" class="mt-3">
+<input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+<button type="submit" class="btn btn-primary w-full">Add to cart</button>
+</form>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+</div>
+</section>
+{% schema %}
+{
+"name": "Product bundles",
+"settings": [
+{"type": "text", "id": "heading", "label": "Heading", "default": "Choose your jar or bundle"},
+{"type": "textarea", "id": "subheading", "label": "Subheading", "default": "Save with value packs and subscriptions."},
+{"type": "product", "id": "product_main", "label": "Main single product"},
+{"type": "product", "id": "product_pack_small", "label": "Small pack"},
+{"type": "product", "id": "product_pack_large", "label": "Family pack"},
+{"type": "checkbox", "id": "enable_subscriptions", "label": "Show \"Subscribe & save\" flag when available", "default": true}
+],
+"presets": [{"name": "Product bundles"}]
+}
+{% endschema %}
