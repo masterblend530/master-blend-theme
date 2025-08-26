@@ -1,0 +1,15 @@
+<section class="py-4 bg-white border-t">
+<div class="container mx-auto px-6">
+{% render 'trust-badges' %}
+</div>
+</section>
+{% schema %}
+{
+"name": "Trust bar",
+"settings": [
+{"type": "list", "id": "badges", "label": "Badges (text only)", "default": ["Natural Ingredients","Small‑Batch","Money‑Back Guarantee","Secure Checkout"]},
+{"type": "textarea", "id": "disclaimer", "label": "Disclaimer", "default": "*Statements not evaluated by the FDA. Not intended to diagnose, treat, cure, or prevent any disease.*"}
+],
+"presets": [{"name": "Trust bar"}]
+}
+{% endschema %}
