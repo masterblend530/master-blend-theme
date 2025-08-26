@@ -1,0 +1,422 @@
+# File: templates/index.json
+{
+  "sections": {
+    "hero": {
+      "type": "hero-master-blend",
+      "settings": {
+        "eyebrow": "All‑Natural Relief",
+        "heading": "Master Blend — multi‑purpose comfort, crafted by nature",
+        "subheading": "Chemical‑free, small‑batch, coconut‑oil base with clove, lemon, cinnamon bark, eucalyptus, and rosemary.",
+        "primary_label": "Shop Master Blend",
+        "primary_link": "/collections/all",
+        "secondary_label": "How it works",
+        "secondary_link": "#ingredients",
+        "desktop_image": "shopify://shop_images/hero-cream-bg.jpg",
+        "mobile_image": "shopify://shop_images/hero-cream-bg-mobile.jpg",
+        "badge_text": "Small‑batch • USA made",
+        "show_trustbar": true
+      }
+    },
+    "benefits": {
+      "type": "benefits-grid",
+      "blocks": {
+        "b1": {"type": "benefit", "settings": {"icon": "muscle", "title": "Fast pain relief", "text": "Soothing comfort for joints & muscles."}},
+        "b2": {"type": "benefit", "settings": {"icon": "head", "title": "Head & nerve comfort", "text": "Calming support for headaches & restless legs."}},
+        "b3": {"type": "benefit", "settings": {"icon": "leaf", "title": "All‑natural", "text": "No parabens, no synthetics, just plants."}},
+        "b4": {"type": "benefit", "settings": {"icon": "shield", "title": "Gentle on skin", "text": "Coconut‑oil base nourishes & protects."}}
+      },
+      "block_order": ["b1","b2","b3","b4"],
+      "settings": {
+        "heading": "Why customers love Master Blend",
+        "kicker": "Multi‑purpose relief"
+      }
+    },
+    "ingredients": {
+      "type": "ingredients-tiles",
+      "settings": {
+        "id_anchor": "ingredients",
+        "heading": "Nature’s powerhouse ingredients",
+        "subheading": "Each ingredient is selected for targeted benefits."
+      },
+      "blocks": {
+        "i1": {"type": "ingredient", "settings": {"image": "shopify://shop_images/coconut.jpg", "title": "Coconut Oil", "benefit": "Rich in antioxidants; supports skin barrier."}},
+        "i2": {"type": "ingredient", "settings": {"image": "shopify://shop_images/clove.jpg", "title": "Clove", "benefit": "Comforts aching muscles & tooth area."}},
+        "i3": {"type": "ingredient", "settings": {"image": "shopify://shop_images/lemon.jpg", "title": "Lemon", "benefit": "Uplifting aroma; skin‑friendly refresh."}},
+        "i4": {"type": "ingredient", "settings": {"image": "shopify://shop_images/cinnamon.jpg", "title": "Cinnamon Bark", "benefit": "Warming sensation; supports circulation."}},
+        "i5": {"type": "ingredient", "settings": {"image": "shopify://shop_images/eucalyptus.jpg", "title": "Eucalyptus", "benefit": "Soothing for chest & muscle comfort."}},
+        "i6": {"type": "ingredient", "settings": {"image": "shopify://shop_images/rosemary.jpg", "title": "Rosemary", "benefit": "Cognitive clarity; scalp & skin support."}}
+      },
+      "block_order": ["i1","i2","i3","i4","i5","i6"]
+    },
+    "bundles": {
+      "type": "product-bundles",
+      "settings": {
+        "heading": "Choose your jar or bundle",
+        "subheading": "Save with value packs and subscriptions.",
+        "product_main": "master-blend-2oz-jar",
+        "product_pack_small": "master-blend-3-pack",
+        "product_pack_large": "master-blend-family-pack",
+        "enable_subscriptions": true
+      }
+    },
+    "testimonials": {
+      "type": "testimonials-ugc",
+      "settings": {"heading": "Real stories. Real relief."},
+      "blocks": {
+        "t1": {"type": "quote", "settings": {"stars": 5, "author": "Kim R.", "text": "Back pain melted away in minutes. I keep a jar at work and home!"}},
+        "t2": {"type": "quote", "settings": {"stars": 5, "author": "Andre M.", "text": "Helps my restless legs at night — game changer."}},
+        "t3": {"type": "quote", "settings": {"stars": 4, "author": "Jess P.", "text": "Love the natural scent and skin feel. Bought the 3‑pack."}}
+      },
+      "block_order": ["t1","t2","t3"]
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {"heading": "Questions & answers"},
+      "blocks": {
+        "f1": {"type": "item", "settings": {"q": "How do I use Master Blend?", "a": "Massage a small amount into the area of discomfort 2–3× daily as needed."}},
+        "f2": {"type": "item", "settings": {"q": "Is it safe for sensitive skin?", "a": "Always patch‑test first. Our coconut‑oil base is gentle, but discontinue if irritation occurs."}},
+        "f3": {"type": "item", "settings": {"q": "Is this FDA‑approved?", "a": "This product is not intended to diagnose, treat, cure, or prevent any disease. See full disclaimer below."}}
+      },
+      "block_order": ["f1","f2","f3"]
+    },
+    "newsletter": {
+      "type": "newsletter-cta",
+      "settings": {
+        "heading": "Get 10% off your first jar",
+        "subheading": "Join for natural‑wellness tips and exclusive offers.",
+        "placeholder": "Your email address",
+        "button_label": "Get my 10%"
+      }
+    },
+    "trust": {
+      "type": "trust-bar",
+      "settings": {
+        "badges": ["Natural Ingredients","Small‑Batch","Money‑Back Guarantee","Secure Checkout"],
+        "disclaimer": "*Statements not evaluated by the FDA. Not intended to diagnose, treat, cure, or prevent any disease.*"
+      }
+    }
+  },
+  "order": ["hero","benefits","ingredients","bundles","testimonials","faq","newsletter","trust"]
+}
+
+
+<!-- ========================= SECTIONS ========================= -->
+
+# File: sections/hero-master-blend.liquid
+<section class="mb-0 relative">
+  <picture>
+    <source media="(max-width: 767px)" srcset="{{ section.settings.mobile_image | image_url }}">
+    <img src="{{ section.settings.desktop_image | image_url }}" alt="Master Blend hero" class="w-full h-[60vh] object-cover">
+  </picture>
+  <div class="absolute inset-0 flex items-center">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <div class="inline-block bg-white/80 backdrop-blur rounded-2xl p-6">
+        {% if section.settings.eyebrow != '' %}
+          <p class="text-sm tracking-wide uppercase">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        <h1 class="text-3xl md:text-5xl font-semibold leading-tight mt-1">{{ section.settings.heading }}</h1>
+        <p class="mt-3 max-w-2xl">{{ section.settings.subheading }}</p>
+        <div class="mt-5 flex gap-3">
+          <a href="{{ section.settings.primary_link }}" class="btn btn-primary">{{ section.settings.primary_label }}</a>
+          <a href="{{ section.settings.secondary_link }}" class="btn btn-secondary">{{ section.settings.secondary_label }}</a>
+        </div>
+        {% if section.settings.badge_text != '' %}
+          <div class="mt-4 text-xs opacity-80">{{ section.settings.badge_text }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% if section.settings.show_trustbar %}
+    <div class="bg-white py-3 border-t">
+      {% render 'trust-badges' %}
+    </div>
+  {% endif %}
+</section>
+{% schema %}
+{
+  "name": "Hero — Master Blend",
+  "tag": "section",
+  "class": "section-hero",
+  "settings": [
+    {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "All‑Natural Relief"},
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Master Blend — multi‑purpose comfort, crafted by nature"},
+    {"type": "textarea", "id": "subheading", "label": "Subheading", "default": "Chemical‑free, small‑batch, coconut‑oil base with clove, lemon, cinnamon bark, eucalyptus, and rosemary."},
+    {"type": "image_picker", "id": "desktop_image", "label": "Desktop image"},
+    {"type": "image_picker", "id": "mobile_image", "label": "Mobile image"},
+    {"type": "text", "id": "primary_label", "label": "Primary button label", "default": "Shop Master Blend"},
+    {"type": "url", "id": "primary_link", "label": "Primary button link"},
+    {"type": "text", "id": "secondary_label", "label": "Secondary button label", "default": "How it works"},
+    {"type": "url", "id": "secondary_link", "label": "Secondary button link"},
+    {"type": "text", "id": "badge_text", "label": "Badge text", "default": "Small‑batch • USA made"},
+    {"type": "checkbox", "id": "show_trustbar", "label": "Show trust bar", "default": true}
+  ],
+  "presets": [{"name": "Hero — Master Blend"}]
+}
+{% endschema %}
+
+
+# File: sections/benefits-grid.liquid
+<section class="py-14">
+  <div class="container mx-auto px-6">
+    <p class="text-sm uppercase tracking-wide">{{ section.settings.kicker }}</p>
+    <h2 class="text-3xl font-semibold mt-1">{{ section.settings.heading }}</h2>
+    <div class="grid md:grid-cols-4 gap-6 mt-8">
+      {% for block in section.blocks %}
+        <div class="p-6 bg-white rounded-2xl shadow-sm" {{ block.shopify_attributes }}>
+          <div class="text-3xl">{% render 'icon-ml', name: block.settings.icon %}</div>
+          <h3 class="mt-3 font-medium">{{ block.settings.title }}</h3>
+          <p class="text-sm mt-1 opacity-80">{{ block.settings.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Benefits grid",
+  "settings": [
+    {"type": "text", "id": "kicker", "label": "Kicker", "default": "Multi‑purpose relief"},
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Why customers love Master Blend"}
+  ],
+  "blocks": [
+    {"type": "benefit", "name": "Benefit", "settings": [
+      {"type": "text", "id": "icon", "label": "Icon name (muscle, head, leaf, shield)", "default": "muscle"},
+      {"type": "text", "id": "title", "label": "Title", "default": "Fast pain relief"},
+      {"type": "textarea", "id": "text", "label": "Text", "default": "Soothing comfort for joints & muscles."}
+    ]}
+  ],
+  "presets": [{"name": "Benefits grid"}]
+}
+{% endschema %}
+
+
+# File: sections/ingredients-tiles.liquid
+<section id="{{ section.settings.id_anchor | default: 'ingredients' }}" class="py-16 bg-neutral-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-semibold">{{ section.settings.heading }}</h2>
+    <p class="mt-2 opacity-80">{{ section.settings.subheading }}</p>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
+      {% for block in section.blocks %}
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm" {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}" class="w-full h-44 object-cover">
+          {% endif %}
+          <div class="p-5">
+            <h3 class="font-medium">{{ block.settings.title }}</h3>
+            <p class="text-sm opacity-80 mt-1">{{ block.settings.benefit }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Ingredients tiles",
+  "settings": [
+    {"type": "text", "id": "id_anchor", "label": "Anchor id", "default": "ingredients"},
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Nature’s powerhouse ingredients"},
+    {"type": "textarea", "id": "subheading", "label": "Subheading", "default": "Each ingredient is selected for targeted benefits."}
+  ],
+  "blocks": [
+    {"type": "ingredient", "name": "Ingredient", "settings": [
+      {"type": "image_picker", "id": "image", "label": "Image"},
+      {"type": "text", "id": "title", "label": "Title", "default": "Coconut Oil"},
+      {"type": "textarea", "id": "benefit", "label": "Benefit", "default": "Rich in antioxidants; supports skin barrier."}
+    ]}
+  ],
+  "presets": [{"name": "Ingredients tiles"}]
+}
+{% endschema %}
+
+
+# File: sections/product-bundles.liquid
+<section class="py-16">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-semibold">{{ section.settings.heading }}</h2>
+    <p class="mt-2 opacity-80">{{ section.settings.subheading }}</p>
+    <div class="grid md:grid-cols-3 gap-6 mt-8">
+      {% assign handles = section.settings | json | parse_json %}
+      {% assign main = section.settings.product_main | default: '' %}
+      {% assign psmall = section.settings.product_pack_small | default: '' %}
+      {% assign plarge = section.settings.product_pack_large | default: '' %}
+
+      {% for handle in main | append: ',' | append: psmall | append: ',' | append: plarge | split: ',' %}
+        {% assign product = all_products[handle] %}
+        {% if product %}
+          <div class="bg-white rounded-2xl shadow-sm p-5">
+            <a href="{{ product.url }}" class="block">
+              {% if product.featured_image %}
+                <img class="w-full h-52 object-cover rounded-xl" src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}">
+              {% endif %}
+              <h3 class="mt-3 font-medium">{{ product.title }}</h3>
+            </a>
+            <div class="mt-2">{% render 'price', product: product %}</div>
+            {% if section.settings.enable_subscriptions and product.selling_plan_groups.size > 0 %}
+              <div class="mt-2 text-sm">Subscribe & save available</div>
+            {% endif %}
+            <form method="post" action="/cart/add" class="mt-3">
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+              <button type="submit" class="btn btn-primary w-full">Add to cart</button>
+            </form>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Product bundles",
+  "settings": [
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Choose your jar or bundle"},
+    {"type": "textarea", "id": "subheading", "label": "Subheading", "default": "Save with value packs and subscriptions."},
+    {"type": "product", "id": "product_main", "label": "Main single product"},
+    {"type": "product", "id": "product_pack_small", "label": "Small pack"},
+    {"type": "product", "id": "product_pack_large", "label": "Family pack"},
+    {"type": "checkbox", "id": "enable_subscriptions", "label": "Show \"Subscribe & save\" flag when available", "default": true}
+  ],
+  "presets": [{"name": "Product bundles"}]
+}
+{% endschema %}
+
+
+# File: sections/testimonials-ugc.liquid
+<section class="py-16 bg-neutral-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-semibold">{{ section.settings.heading }}</h2>
+    <div class="grid md:grid-cols-3 gap-6 mt-8">
+      {% for block in section.blocks %}
+        <figure class="bg-white rounded-2xl p-6 shadow-sm" {{ block.shopify_attributes }}>
+          <div class="flex items-center gap-1 text-amber-500">
+            {% for i in (1..block.settings.stars) %}★{% endfor %}
+          </div>
+          <blockquote class="mt-2">{{ block.settings.text }}</blockquote>
+          <figcaption class="mt-3 text-sm opacity-80">— {{ block.settings.author }}</figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Testimonials (UGC)",
+  "settings": [
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Real stories. Real relief."}
+  ],
+  "blocks": [
+    {"type": "quote", "name": "Quote", "settings": [
+      {"type": "range", "id": "stars", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5},
+      {"type": "textarea", "id": "text", "label": "Text", "default": "This helped my back within minutes."},
+      {"type": "text", "id": "author", "label": "Author", "default": "A happy customer"}
+    ]}
+  ],
+  "presets": [{"name": "Testimonials (UGC)"}]
+}
+{% endschema %}
+
+
+# File: sections/faq-accordion.liquid
+<section class="py-16">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-semibold">{{ section.settings.heading }}</h2>
+    <div class="mt-6 divide-y">
+      {% for block in section.blocks %}
+        <details class="py-4" {{ block.shopify_attributes }}>
+          <summary class="cursor-pointer font-medium">{{ block.settings.q }}</summary>
+          <div class="mt-2 opacity-80">{{ block.settings.a }}</div>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "FAQ accordion",
+  "settings": [
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Questions & answers"}
+  ],
+  "blocks": [
+    {"type": "item", "name": "Item", "settings": [
+      {"type": "text", "id": "q", "label": "Question", "default": "How do I use Master Blend?"},
+      {"type": "textarea", "id": "a", "label": "Answer", "default": "Massage a small amount into the area of discomfort 2–3× daily as needed."}
+    ]}
+  ],
+  "presets": [{"name": "FAQ accordion"}]
+}
+{% endschema %}
+
+
+# File: sections/newsletter-cta.liquid
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-semibold">{{ section.settings.heading }}</h2>
+    <p class="mt-2 opacity-80">{{ section.settings.subheading }}</p>
+    {% form 'customer' %}
+      <div class="mt-6 max-w-md mx-auto flex gap-2">
+        <input type="email" name="contact[email]" placeholder="{{ section.settings.placeholder }}" class="flex-1 border rounded-xl px-4 py-3" required>
+        <button class="btn btn-primary" type="submit">{{ section.settings.button_label }}</button>
+      </div>
+    {% endform %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Newsletter CTA",
+  "settings": [
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Get 10% off your first jar"},
+    {"type": "textarea", "id": "subheading", "label": "Subheading", "default": "Join for natural‑wellness tips and exclusive offers."},
+    {"type": "text", "id": "placeholder", "label": "Placeholder", "default": "Your email address"},
+    {"type": "text", "id": "button_label", "label": "Button label", "default": "Get my 10%"}
+  ],
+  "presets": [{"name": "Newsletter CTA"}]
+}
+{% endschema %}
+
+
+# File: sections/trust-bar.liquid
+<section class="py-4 bg-white border-t">
+  <div class="container mx-auto px-6">
+    {% render 'trust-badges' %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Trust bar",
+  "settings": [
+    {"type": "list", "id": "badges", "label": "Badges (text only)", "default": ["Natural Ingredients","Small‑Batch","Money‑Back Guarantee","Secure Checkout"]},
+    {"type": "textarea", "id": "disclaimer", "label": "Disclaimer", "default": "*Statements not evaluated by the FDA. Not intended to diagnose, treat, cure, or prevent any disease.*"}
+  ],
+  "presets": [{"name": "Trust bar"}]
+}
+{% endschema %}
+
+
+# File: snippets/trust-badges.liquid
+<div class="flex flex-wrap gap-4 items-center justify-center text-sm">
+  {% for badge in section.settings.badges %}
+    <div class="px-3 py-1 rounded-full bg-neutral-100 border">{{ badge }}</div>
+  {% endfor %}
+  {% if section.settings.disclaimer != blank %}
+    <div class="w-full text-center text-xs opacity-70 mt-2">{{ section.settings.disclaimer }}</div>
+  {% endif %}
+</div>
+
+
+# File: snippets/icon-ml.liquid
+{% case name %}
+  {% when 'muscle' %}<span aria-hidden="true">💪</span>
+  {% when 'head' %}<span aria-hidden="true">🧠</span>
+  {% when 'leaf' %}<span aria-hidden="true">🍃</span>
+  {% when 'shield' %}<span aria-hidden="true">🛡️</span>
+  {% else %}<span aria-hidden="true">✨</span>
+{% endcase %}
+
+
+# NOTE: Minimal utility classes
+<style>
+  .container{max-width:1200px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:9999px;padding:.75rem 1.25rem;border:1px solid #0b6;}
+  .btn-primary{background:#0b6;color:#fff}
+  .btn-secondary{background:#fff;color:#0b6;border-color:#0b6}
+</style>
