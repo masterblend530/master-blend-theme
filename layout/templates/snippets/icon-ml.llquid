@@ -1,0 +1,7 @@
+{% case name %}
+{% when 'muscle' %}<span aria-hidden="true">💪</span>
+{% when 'head' %}<span aria-hidden="true">🧠</span>
+{% when 'leaf' %}<span aria-hidden="true">🍃</span>
+{% when 'shield' %}<span aria-hidden="true">🛡️</span>
+{% else %}<span aria-hidden="true">✨</span>
+{% endcase %}
