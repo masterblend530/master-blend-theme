@@ -1,0 +1,80 @@
+{
+"sections": {
+"hero": {
+"type": "hero-master-blend",
+"settings": {
+"eyebrow": "All‑Natural Relief",
+"heading": "Master Blend — multi‑purpose comfort, crafted by nature",
+"subheading": "Chemical‑free, small‑batch, coconut‑oil base with clove, lemon, cinnamon bark, eucalyptus, and rosemary.",
+"primary_label": "Shop Master Blend",
+"primary_link": "/collections/all",
+"secondary_label": "How it works",
+"secondary_link": "#ingredients",
+"desktop_image": "shopify://shop_images/hero-cream-bg.jpg",
+"mobile_image": "shopify://shop_images/hero-cream-bg-mobile.jpg",
+"badge_text": "Small‑batch • USA made",
+"show_trustbar": true
+}
+},
+"benefits": {
+"type": "benefits-grid",
+"blocks": {
+"b1": {"type": "benefit", "settings": {"icon": "muscle", "title": "Fast pain relief", "text": "Soothing comfort for joints & muscles."}},
+"b2": {"type": "benefit", "settings": {"icon": "head", "title": "Head & nerve comfort", "text": "Calming support for headaches & restless legs."}},
+"b3": {"type": "benefit", "settings": {"icon": "leaf", "title": "All‑natural", "text": "No parabens, no synthetics, just plants."}},
+"b4": {"type": "benefit", "settings": {"icon": "shield", "title": "Gentle on skin", "text": "Coconut‑oil base nourishes & protects."}}
+},
+"block_order": ["b1","b2","b3","b4"],
+"settings": {
+"heading": "Why customers love Master Blend",
+"kicker": "Multi‑purpose relief"
+}
+},
+"ingredients": {
+"type": "ingredients-tiles",
+"settings": {
+"id_anchor": "ingredients",
+"heading": "Nature’s powerhouse ingredients",
+"subheading": "Each ingredient is selected for targeted benefits."
+},
+"blocks": {
+"i1": {"type": "ingredient", "settings": {"image": "shopify://shop_images/coconut.jpg", "title": "Coconut Oil", "benefit": "Rich in antioxidants; supports skin barrier."}},
+"i2": {"type": "ingredient", "settings": {"image": "shopify://shop_images/clove.jpg", "title": "Clove", "benefit": "Comforts aching muscles & tooth area."}},
+"i3": {"type": "ingredient", "settings": {"image": "shopify://shop_images/lemon.jpg", "title": "Lemon", "benefit": "Uplifting aroma; skin‑friendly refresh."}},
+"i4": {"type": "ingredient", "settings": {"image": "shopify://shop_images/cinnamon.jpg", "title": "Cinnamon Bark", "benefit": "Warming sensation; supports circulation."}},
+"i5": {"type": "ingredient", "settings": {"image": "shopify://shop_images/eucalyptus.jpg", "title": "Eucalyptus", "benefit": "Soothing for chest & muscle comfort."}},
+"i6": {"type": "ingredient", "settings": {"image": "shopify://shop_images/rosemary.jpg", "title": "Rosemary", "benefit": "Cognitive clarity; scalp & skin support."}}
+},
+"block_order": ["i1","i2","i3","i4","i5","i6"]
+},
+"bundles": {
+"type": "product-bundles",
+"settings": {
+"heading": "Choose your jar or bundle",
+"subheading": "Save with value packs and subscriptions.",
+"product_main": "master-blend-2oz-jar",
+"product_pack_small": "master-blend-3-pack",
+"product_pack_large": "master-blend-family-pack",
+"enable_subscriptions": true
+}
+},
+"testimonials": {
+"type": "testimonials-ugc",
+"settings": {"heading": "Real stories. Real relief."},
+"blocks": {
+"t1": {"type": "quote", "settings": {"stars": 5, "author": "Kim R.", "text": "Back pain melted away in minutes. I keep a jar at work and home!"}},
+"t2": {"type": "quote", "settings": {"stars": 5, "author": "Andre M.", "text": "Helps my restless legs at night — game changer."}},
+"t3": {"type": "quote", "settings": {"stars": 4, "author": "Jess P.", "text": "Love the natural scent and skin feel. Bought the 3‑pack."}}
+},
+"block_order": ["t1","t2","t3"]
+},
+"faq": {
+"type": "faq-accordion",
+"settings": {"heading": "Questions & answers"},
+"blocks": {
+"f1": {"type": "item", "settings": {"q": "How do I use Master Blend?", "a": "Massage a small amount into the area of discomfort 2–3× daily as needed."}},
+"f2": {"type": "item", "settings": {"q": "Is it safe for sensitive skin?", "a": "Always patch‑test first. Our coconut‑oil base is gentle, but discontinue if irritation occurs."}},
+"f3": {"type": "item", "settings": {"q": "Is this FDA‑approved?", "a": "This product is not intended to diagnose, treat, cure, or prevent any disease. See full disclaimer below."}}
+},
+"block_order": ["f1","f2","f3"]
+}
